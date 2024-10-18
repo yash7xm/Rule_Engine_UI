@@ -33,15 +33,17 @@ function CreateRule() {
             });
 
             if (!response.ok) {
-                throw new Error(`Error: ${response.statusText}`);
+                const errorResponse = await response.json();
+                setResponseMessage(errorResponse.error);
+                toast(`${errorResponse.message}`);
+                return;
             }
 
-            const data = await response.json();
-            console.log(data);
-            setResponseMessage(data.rule_id);
-            toast(`Rule created successfully with ID: ${data.rule_id}`);
+            const res = await response.json();
+            setResponseMessage(res.data.Node);
+            toast(`${res.message}`);
         } catch (error: any) {
-            toast(`Failed to create rule: ${error.message}`);
+            toast(`${error.message}`);
         }
     };
 
