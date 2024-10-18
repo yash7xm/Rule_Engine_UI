@@ -16,23 +16,23 @@ function CreateRule() {
             <Card>
                 <CardHeader>
                     <CardTitle>Create Rule</CardTitle>
-                    <CardDescription>
-                        Make changes to your account here. Click save when
-                        you're done.
-                    </CardDescription>
+                    <CardDescription>Add your rule here</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
                     <div className="space-y-1">
                         <Label htmlFor="name">Name</Label>
-                        <Input id="name" defaultValue="Pedro Duarte" />
+                        <Input id="name" defaultValue="rule1" />
                     </div>
                     <div className="space-y-1">
-                        <Label htmlFor="username">Username</Label>
-                        <Input id="username" defaultValue="@peduarte" />
+                        <Label htmlFor="username">Rule</Label>
+                        <Input
+                            id="username"
+                            defaultValue="age > 30 AND department = 'Sales'"
+                        />
                     </div>
                 </CardContent>
                 <CardFooter>
-                    <Button>Save changes</Button>
+                    <Button>Create</Button>
                 </CardFooter>
             </Card>
         </>

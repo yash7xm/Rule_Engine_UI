@@ -17,18 +17,21 @@ function EvaluateRule() {
                 <CardHeader>
                     <CardTitle>Evaluate Rule</CardTitle>
                     <CardDescription>
-                        Change your password here. After saving, you'll be
-                        logged out.
+                        Provide combined rule's AST and a dictionary data
+                        containing attributes.
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
                     <div className="space-y-1">
-                        <Label htmlFor="current">Current password</Label>
-                        <Input id="current" type="password" />
+                        <Label htmlFor="name">AST</Label>
+                        <Input id="name" defaultValue="combine_rule1" />
                     </div>
                     <div className="space-y-1">
-                        <Label htmlFor="new">New password</Label>
-                        <Input id="new" type="password" />
+                        <Label htmlFor="username">Data</Label>
+                        <Input
+                            id="data"
+                            defaultValue='{"age": 35, "department": "Sales", "salary": 60000, "experience": 3}'
+                        />
                     </div>
                 </CardContent>
                 <CardFooter>
