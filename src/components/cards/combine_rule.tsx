@@ -38,6 +38,7 @@ function CombineRules() {
             }
 
             const data = await response.json();
+            console.log(data)
             setResponseMessage(
                 `Rule created successfully with ID: ${data.rule_id}`
             );

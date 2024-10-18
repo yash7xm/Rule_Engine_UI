@@ -10,7 +10,7 @@ function Home() {
                 <div className="text-center text-2xl font-bold mb-8">
                     Rule Engine
                 </div>
-                <div className="w-3/5 h-4/5 mx-auto mt-8">
+                <div className="w-1/2 h-4/5 mx-auto mt-8">
                     <Tabs defaultValue="create_rule" className="w-full">
                         <TabsList className="grid w-full grid-cols-3">
                             <TabsTrigger value="create_rule">

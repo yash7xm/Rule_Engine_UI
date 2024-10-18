@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
+import Response from "./response";
 
 function CreateRule() {
     const [ruleName, setRuleName] = useState("rule1");
@@ -36,11 +38,10 @@ function CreateRule() {
 
             const data = await response.json();
             console.log(data);
-            setResponseMessage(
-                `Rule created successfully with ID: ${data.rule_id}`
-            );
+            setResponseMessage(data.rule_id);
+            toast(`Rule created successfully with ID: ${data.rule_id}`);
         } catch (error: any) {
-            setResponseMessage(`Failed to create rule: ${error.message}`);
+            toast(`Failed to create rule: ${error.message}`);
         }
     };
 
@@ -69,12 +70,11 @@ function CreateRule() {
                         />
                     </div>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex justify-between">
                     <Button onClick={handleCreateRule}>Create</Button>
+                    <Response res={responseMessage} />
                 </CardFooter>
             </Card>
-
-            {responseMessage && <p>{responseMessage}</p>}
         </>
     );
 }
