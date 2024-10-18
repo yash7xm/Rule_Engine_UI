@@ -40,7 +40,7 @@ function CreateRule() {
             }
 
             const res = await response.json();
-            setResponseMessage(res.data.Node);
+            setResponseMessage(res.data.node);
             toast(`${res.message}`);
         } catch (error: any) {
             toast(`${error.message}`);

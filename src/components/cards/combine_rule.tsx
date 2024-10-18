@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
+import Response from "./response";
 
 function CombineRules() {
     const [ruleName, setRuleName] = useState("combine_rule1");
@@ -34,16 +36,17 @@ function CombineRules() {
             );
 
             if (!response.ok) {
-                throw new Error(`Error: ${response.statusText}`);
+                const errorResponse = await response.json();
+                setResponseMessage(errorResponse.error);
+                toast(`${errorResponse.message}`);
+                return;
             }
 
-            const data = await response.json();
-            console.log(data)
-            setResponseMessage(
-                `Rule created successfully with ID: ${data.rule_id}`
-            );
+            const res = await response.json();
+            setResponseMessage(res.data.node);
+            toast(`${res.message}`);
         } catch (error: any) {
-            setResponseMessage(`Failed to create rule: ${error.message}`);
+            toast(`${error.message}`);
         }
     };
 
@@ -74,12 +77,11 @@ function CombineRules() {
                         />
                     </div>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex justify-between">
                     <Button onClick={handleCreateRule}>Create</Button>
+                    <Response res={responseMessage} />
                 </CardFooter>
             </Card>
-
-            {responseMessage && <p>{responseMessage}</p>}
         </>
     );
 }
