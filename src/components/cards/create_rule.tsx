@@ -22,15 +22,18 @@ function CreateRule() {
 
     const handleCreateRule = async () => {
         try {
-            const response = await fetch("http://localhost:8080/create_rule", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    rule_string: ruleString,
-                }),
-            });
+            const response = await fetch(
+                "https://rule-engine-with-ast-skiu.onrender.com/create_rule",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        rule_string: ruleString,
+                    }),
+                }
+            );
 
             if (!response.ok) {
                 const errorResponse = await response.json();

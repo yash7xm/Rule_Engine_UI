@@ -23,7 +23,7 @@ function CombineRules() {
     const handleCreateRule = async () => {
         try {
             const response = await fetch(
-                "http://localhost:8080/combine_rules",
+                "https://rule-engine-with-ast-skiu.onrender.com/combine_rules",
                 {
                     method: "POST",
                     headers: {

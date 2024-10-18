@@ -59,7 +59,7 @@ function EvaluateRule() {
     const handleCreateRule = async () => {
         try {
             const response = await fetch(
-                "http://localhost:8080/evaluate_rule",
+                "https://rule-engine-with-ast-skiu.onrender.com/evaluate_rule",
                 {
                     method: "POST",
                     headers: {
