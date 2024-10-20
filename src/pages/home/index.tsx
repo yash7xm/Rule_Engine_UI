@@ -71,15 +71,15 @@ function Home() {
                         </TabsContent>
                     </Tabs>
                 </div>
+                {loading ? (
+                    <div>
+                        Please wait while we are waking up server this might
+                        take 1-2 mins
+                    </div>
+                ) : (
+                    <></>
+                )}
             </div>
-            {loading ? (
-                <div>
-                    Please wait while we are waking up server this might take
-                    1-2 mins
-                </div>
-            ) : (
-                <></>
-            )}
         </>
     );
 }
